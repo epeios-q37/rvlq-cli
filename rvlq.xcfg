@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Configurations xmlns:xpp="http://q37.info/ns/xpp/">
+ <Configuration target="rvlq">
+  <Parameters>
+   <Language>fr</Language>
+   <Command>Process</Command>
+   <Markers Comment="#" Text="&amp;" File="%" Command="@"/>
+   <Delimiters Tag="$"/>
+  </Parameters>
+  <Definitions></Definitions>
+  <Locale>
+   <Translations message="VersionCommandDescription">
+    <Translation language="fr">Affiche la version du programme.</Translation>
+    <Translation language="en">Displays the version of the program.</Translation>
+   </Translations>
+   <Translations message="LicenseCommandDescription">
+    <Translation language="fr">Affiche la licence du programme.</Translation>
+    <Translation language="en">Displays the program license.</Translation>
+   </Translations>
+   <Translations message="UsageCommandDescription">
+    <Translation language="fr">Affiche cette page.</Translation>
+    <Translation language="en">Displays this page.</Translation>
+   </Translations>
+   <Translations text="ProcessCommandDescription">
+    <Translation language="fr">Lancement de la substitution.</Translation>
+    <Translation language="en">Launch substitution.</Translation>
+   </Translations>
+   <Translations text="TagDelimiterOptionDescription">
+    <Translation language="fr">Delimiteur de balise</Translation>
+    <Translation language="en">Tag delimiter.</Translation>
+   </Translations>
+   <Translations text="TagDelimiterOptionLabel">
+    <Translation language="fr">délimiteur</Translation>
+    <Translation language="en">delimiter</Translation>
+   </Translations>
+   <Translations text="TagsArgumentDescription">
+    <Translation language="fr">Fichier des balises.</Translation>
+    <Translation language="en">Tags file.</Translation>
+   </Translations>
+   <Translations text="InputArgumentDescription">
+    <Translation language="fr">Nom du fichier d'entrée (utilisation de l'entrée standard si absent).</Translation>
+    <Translation language="en">Input file name (use of standard input if missing).</Translation>
+   </Translations>
+   <Translations text="OutputArgumentDescription">
+    <Translation language="fr">Nom du fichier de sortie (utilisation de la sortie standard si absent).</Translation>
+    <Translation language="en">Output file name (use of standard output if missing).</Translation>
+   </Translations>
+   <Translations text="TagsArgumentLabel">
+    <Translation language="fr">balises</Translation>
+    <Translation language="en">tags</Translation>
+   </Translations>
+   <Translations text="InputArgumentLabel">
+    <Translation language="fr">in</Translation>
+    <Translation language="en">in</Translation>
+   </Translations>
+   <Translations text="OutputArgumentLabel">
+    <Translation language="fr">out</Translation>
+    <Translation language="en">out</Translation>
+   </Translations>
+  </Locale>
+  <Arguments>
+   <Argument id="Usage" Description="UsageCommandDescription" long="help" Value="Usage"/>
+   <Argument id="Version" Description="VersionCommandDescription" long="version" Value="Version"/>
+   <Argument id="License" Description="LicenseCommandDescription" long="license" Value="License"/>
+   <Argument id="ProcessCommand" Description="ProcessCommandDescription" long="process" short="p" Value="Process" Usage="[%TagDelimiterOption%] %TagsArgument% [%InputArgument% [%OutputArgument%]]"/>
+   <Argument id="TagDelimiterOption" Description="TagDelimiterOptionDescription" long="delimiter" short="d" Path="Delimiters/@Tag" Label="TagDelimiterOptionLabel"/>
+   <Argument id="TagsArgument" Description="TagsArgumentDescription" Path="Tags" Label="TagsArgumentLabel"/>
+   <Argument id="InputArgument" Description="InputArgumentDescription" Path="Input" Label="InputArgumentLabel"/>
+   <Argument id="OutputArgument" Description="OutputArgumentDescription" Path="Output" Label="OutputArgumentLabel"/>
+   <Layouts>
+    <Layout command="Process">
+     <Link index="0" Target="TagsArgument"/>
+     <Link index="1" Target="InputArgument"/>
+     <Link index="2" Target="OutputArgument"/>
+    </Layout>
+   </Layouts>
+  </Arguments>
+ </Configuration>
+</Configurations>
