@@ -115,7 +115,7 @@ endif
 
 ifeq ("$(os)","$(GNULinux)")
 # By default, 'CXX' is set to 'g++'.
-	CXX = clang++
+#	CXX = clang++
 endif
 
 #############################
