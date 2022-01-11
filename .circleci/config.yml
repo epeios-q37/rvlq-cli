@@ -6,7 +6,7 @@ jobs:
       image: ubuntu-2004:202010-01
     steps:
       - checkout
-      - run: make -f
+      - run: make -j
 
 workflows:
   version: 2.1
