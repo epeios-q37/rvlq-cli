@@ -17,4 +17,4 @@ jobs:
     - name: build
       run: MSBuild rvlq.vcxproj
     - name: version
-      run: rvlq-cli\rvlq.exe --version
+      run: D:\a\rvlq-cli\rvlq-cli\rvlq.exe --version
