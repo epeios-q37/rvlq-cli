@@ -1,5 +1,7 @@
 # rvlq-cli
 
+[![MacOS](https://github.com/epeios-q37/rvlq-cli/actions/workflows/MacOS.yml/badge.svg)](https://github.com/epeios-q37/rvlq-cli/actions/workflows/MacOS.yml) [![MacOS](https://github.com/epeios-q37/rvlq-cli/actions/workflows/MacOS.yml/badge.svg)](https://github.com/epeios-q37/rvlq-cli/actions/workflows/MacOS.yml) [![Windows](https://github.com/epeios-q37/rvlq-cli/actions/workflows/Windows.yml/badge.svg)](https://github.com/epeios-q37/rvlq-cli/actions/workflows/Windows.yml)
+
 *RVLq* replaces tags with text, file content or command output.
 
 Let's take a file named `Source.txt` which contains tags (delimited by `$`):

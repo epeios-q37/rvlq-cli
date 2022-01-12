@@ -16,4 +16,4 @@ jobs:
     - name: make
       run: make -j
     - name: version
-      run: rvlq --version      
+      run: ./rvlq --version
