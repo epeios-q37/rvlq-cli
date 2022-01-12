@@ -166,14 +166,14 @@ namespace dtfptb {
 		flw::iflow__ &Flow,
 		bso::size__ &Size )
 	{
-		return Size = VGetUHuge_( Flow, BSO_SIZE_MAX );
+		return Size = VGetUHuge_(Flow, BSO_SIZE_MAX, NULL);
 	}
 
 	inline void VPut(
 		bso::size__ Size,
 		flw::oflow__ &Flow )
 	{
-		VPutUHuge_( Size, Flow );
+		VPutUHuge_(Size, Flow);
 	}
 # endif
 
