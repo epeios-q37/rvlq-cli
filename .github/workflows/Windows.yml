@@ -19,6 +19,6 @@ jobs:
     - name: build
       run: MSBuild rvlq.vcxproj
     - name: version
-      run: D:\a\rvlq-cli\rvlq-cli\rvlq.exe --version
-    - name: version3
       run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "--version"
+    - name: test
+      run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "test\Source.txt test\Tags.txt"
