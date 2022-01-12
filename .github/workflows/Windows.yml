@@ -21,6 +21,6 @@ jobs:
     - name: version
       run: D:\a\rvlq-cli\rvlq-cli\rvlq.exe --version
     - name: version2
-      run: rvlq.exe --version
+      run: "& rvlq.exe --version"
     - name: version3
       run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "--version"
