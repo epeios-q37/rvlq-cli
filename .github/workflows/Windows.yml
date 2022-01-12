@@ -14,6 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: ilammy/msvc-dev-cmd@v1
+    - name: WherAmI
+      run: The current directory is %CD%
     - name: build
       run: MSBuild rvlq.vcxproj
     - name: version
