@@ -15,3 +15,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: make
       run: make -j
+    - name: version
+      run: rvlq --version      
