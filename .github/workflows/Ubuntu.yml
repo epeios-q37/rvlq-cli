@@ -18,4 +18,4 @@ jobs:
     - name: version
       run: ./rvlq --version
     - name: test
-      run: ./rvlq test/Source.txt test/Tags.txt
+      run: ./rvlq test/Tags.txt test/Source.txt

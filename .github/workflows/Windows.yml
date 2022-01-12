@@ -21,4 +21,4 @@ jobs:
     - name: version
       run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "--version"
     - name: test
-      run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "test\Source.txt test\Tags.txt"
+      run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "test\Tags.txt test\Source.txt"
