@@ -25,13 +25,13 @@
     <Translation language="fr">Lancement de la substitution.</Translation>
     <Translation language="en">Launch substitution.</Translation>
    </Translations>
+   <Translations text="UseCurrentDirFlagDescription">
+    <Translation language="fr">Utilisation du répertoire courant au lieu de celui où se situe le fichier des balises.</Translation>
+    <Translation language="en">Use of the current dir instead of the tags file one.</Translation>
+   </Translations>
    <Translations text="TagDelimiterOptionDescription">
     <Translation language="fr">Delimiteur de balise</Translation>
     <Translation language="en">Tag delimiter.</Translation>
-   </Translations>
-   <Translations text="TagDelimiterOptionLabel">
-    <Translation language="fr">délimiteur</Translation>
-    <Translation language="en">delimiter</Translation>
    </Translations>
    <Translations text="TagsArgumentDescription">
     <Translation language="fr">Fichier des balises.</Translation>
@@ -45,8 +45,12 @@
     <Translation language="fr">Nom du fichier de sortie (utilisation de la sortie standard si absent).</Translation>
     <Translation language="en">Output file name (use of standard output if missing).</Translation>
    </Translations>
+   <Translations text="TagDelimiterOptionLabel">
+    <Translation language="fr">delimiter</Translation>
+    <Translation language="en">delimiter</Translation>
+   </Translations>
    <Translations text="TagsArgumentLabel">
-    <Translation language="fr">balises</Translation>
+    <Translation language="fr">tags</Translation>
     <Translation language="en">tags</Translation>
    </Translations>
    <Translations text="InputArgumentLabel">
@@ -62,7 +66,8 @@
    <Argument id="Usage" Description="UsageCommandDescription" long="help" Value="Usage"/>
    <Argument id="Version" Description="VersionCommandDescription" long="version" Value="Version"/>
    <Argument id="License" Description="LicenseCommandDescription" long="license" Value="License"/>
-   <Argument id="ProcessCommand" Description="ProcessCommandDescription" long="process" short="p" Value="Process" Usage="[%TagDelimiterOption%] %TagsArgument% [%InputArgument% [%OutputArgument%]]"/>
+   <Argument id="ProcessCommand" Description="ProcessCommandDescription" long="process" short="p" Value="Process" Usage="[%TagDelimiterOption%] [%UseCurrentDirFlag%] %TagsArgument% [%InputArgument% [%OutputArgument%]]"/>
+   <Argument id="UseCurrentDirFlag" Description="UseCurrentDirFlagDescription" long="use-current-dir" Path="@UseCurrentDir" Value="Yes"/>
    <Argument id="TagDelimiterOption" Description="TagDelimiterOptionDescription" long="delimiter" short="d" Path="Delimiters/@Tag" Label="TagDelimiterOptionLabel"/>
    <Argument id="TagsArgument" Description="TagsArgumentDescription" Path="Tags" Label="TagsArgumentLabel"/>
    <Argument id="InputArgument" Description="InputArgumentDescription" Path="Input" Label="InputArgumentLabel"/>

@@ -17,8 +17,23 @@ jobs:
     - name: WhereAmI
       run: Get-Location
     - name: build
-      run: MSBuild rvlq.vcxproj
+      run: MSBuild rvlq.vcxproj -m -p:Configuration=Release
     - name: version
       run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "--version"
     - name: test
-      run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "test\Tags.txt test\Source.txt"
+      run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "test/Tags.txt test/Source.txt"
+    - name: packaging
+      run: |
+        cmd /c "mkdir rvlq-v20220113-win-x64"
+        cmd /c "copy /v rvlq.exe rvlq-v20220113-win-x64"
+        cmd /c "copy /v rvlq.xcfg rvlq-v20220113-win-x64"
+        cmd /c "copy /v rvlq.xlcl rvlq-v20220113-win-x64"
+    - name: compressing
+      run: cmd /c "7z a rvlq-v20220113-win-x64.zip rvlq-v20220113-win-x64"
+    - name: release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: rvlq-v20220113-win-x64.zip
+        tag: ${{ github.ref }}
+        overwrite: true

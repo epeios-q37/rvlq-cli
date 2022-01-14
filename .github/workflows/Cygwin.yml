@@ -1,4 +1,4 @@
-name: MacOS
+name: Cygwin
 
 on:
   push:
@@ -9,10 +9,13 @@ on:
 jobs:
   build:
 
-    runs-on: macOS-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
+    - uses: egor-tensin/setup-cygwin@v3
+      with:
+        packages: make gcc-g++
     - name: make
       run: make -j
     - name: version
