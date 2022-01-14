@@ -19,7 +19,7 @@ jobs:
     - name: Create release
       run: |
         cmd /c "mkdir rvlq-windows_v0"
-        cmd /c "copy src/* rvlq-windows_v0/"
+        cmd /c "copy rvlq.xcfg + rvlq.xlcl rvlq-windows_v0"
         cmd /c "7z a rvlq-windows_v0.zip rvlq-windows_v0"
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
