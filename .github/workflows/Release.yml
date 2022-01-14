@@ -21,7 +21,7 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: rvlq.xcfg
-        asset_name: rvlq_windows
+        asset_name: rvlq_windows$tag.xcfg
         tag: ${{ github.ref }}
         overwrite: true
         body: "This is my release text"
