@@ -35,5 +35,5 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: rvlq-v20220113-win-x64.zip
-        tag: 20220113
+        tag: v20220113
         overwrite: true
