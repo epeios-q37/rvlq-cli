@@ -2,7 +2,7 @@
 <Configurations xmlns:xpp="http://q37.info/ns/xpp/">
  <Configuration target="rvlq">
   <Parameters>
-   <Language>fr</Language>
+   <Language>en</Language>
    <Command>Process</Command>
    <Markers Comment="#" Text="&amp;" File="%" Command="@"/>
    <Delimiters Tag="$"/>

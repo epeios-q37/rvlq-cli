@@ -16,8 +16,11 @@ jobs:
     - name: make
       run: make -j
     - name: version
+      if: {{ true }}
       run: ./rvlq --version
     - name: help
+      if: {{ true }}
       run: ./rvlq --help
     - name: test
+      if: {{ true }}
       run: ./rvlq test/Tags.txt test/Source.txt
