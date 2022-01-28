@@ -19,13 +19,13 @@ jobs:
     - name: build
       run: MSBuild rvlq.vcxproj -m -p:Configuration=Release
     - name: version
-      if: {{ true }}
+      if: ${{ true }}
       run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "--version"
     - name: help
-      if: {{ true }}
+      if: ${{ true }}
       run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "--help"
     - name: test
-      if: {{ true }}
+      if: ${{ true }}
       run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "test/Tags.txt test/Source.txt"
     - name: packaging
       run: |
