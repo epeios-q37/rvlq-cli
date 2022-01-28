@@ -20,6 +20,8 @@ jobs:
       run: MSBuild rvlq.vcxproj -m -p:Configuration=Release
     - name: version
       run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "--version"
+    - name: help
+      run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "--help"
     - name: test
       run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "test/Tags.txt test/Source.txt"
     - name: packaging

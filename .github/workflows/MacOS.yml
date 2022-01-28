@@ -17,5 +17,7 @@ jobs:
       run: make -j
     - name: version
       run: ./rvlq --version
+    - name: help
+      run: ./rvlq --help
     - name: test
       run: ./rvlq test/Tags.txt test/Source.txt
