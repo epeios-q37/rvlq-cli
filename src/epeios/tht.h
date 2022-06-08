@@ -277,7 +277,15 @@ namespace tht {
 		}
 	};
 
-		// Block a thread until another unblocks it.
+	qENUM( BlockerPreset ) {
+	  bpLock,
+	  bpDontLock,
+	  bp_amount,
+	  bp_Undefined,
+	  bp_Default = bpLock
+	};
+
+  // Block a thread until another unblocks it.
 	class rBlocker {
 	private:
 		mtx::rMutex
@@ -305,7 +313,7 @@ namespace tht {
 			Local_ = Main_ = mtx::Undefined;
 		}
 		qCDTOR( rBlocker );
-		void Init( bso::sBool SkipPrefetching = false )
+		void Init(eBlockerPreset Preset = bp_Default)
 		{
 		qRH;
 		qRB;
@@ -314,7 +322,10 @@ namespace tht {
 			Local_ = mtx::Create();
 			Main_ = mtx::Create();
 
-			if ( !SkipPrefetching ) {
+			if ( Preset >= bp_amount )
+        qRFwk();
+
+			if ( Preset == bpLock ) {
 				mtx::Lock( Main_ );
 			}
 		qRR;
@@ -322,6 +333,7 @@ namespace tht {
 		qRT;
 		qRE;
 		}
+		// NOTA: rearms also the blocker.
 		void Wait( void )
 		{
 		qRH
@@ -329,12 +341,10 @@ namespace tht {
 		qRB
 			Mutex.InitAndLock( Local_ );
 
-			if ( mtx::TryToLock( Main_ ) )
-				mtx::Unlock( Main_ );
-			else
-				Mutex.Unlock();
-
-			mtx::Lock( Main_ );
+			if ( !mtx::TryToLock( Main_ ) ) {
+				Mutex.reset(); // Ublocks and also avoid mutex unlocking on destruction when locked by other thread.
+        mtx::Lock(Main_);
+      }
 		qRR
 		qRT
 		qRE
@@ -353,24 +363,19 @@ namespace tht {
 		qRE
 			return Blocked;
 		}
-		void Unblock( void )
+		void Unblock(void)
 		{
 		qRH
-//			mtx::rMutex Mutex;	// Can not be used, because the destructor could be called after destruction of underlying mutes.
-			bso::sBool Locked = false;
+			mtx::rHandle Mutex;
 		qRB
-			mtx::Lock( Local_ );
-			Locked = true;
+			Mutex.InitAndLock(Local_);
 
-			if ( mtx::IsLocked( Main_ ) ) {
-				mtx::Unlock( Local_ );
-				Locked = false;
-				mtx::Unlock( Main_ );
+			if ( mtx::IsLocked(Main_) ) {
+				Mutex.reset(); // Unlocks and also avoid calling the destructor with underlying mutexes already destroyed..
+				mtx::Unlock(Main_);
 			}
 		qRR
 		qRT
-			if ( Locked )
-				mtx::Unlock( Local_ );
 		qRE
 		}
 	};

@@ -29,16 +29,16 @@ jobs:
       run: Start-Process -NoNewWindow -FilePath ".\rvlq.exe" -ArgumentList "test/Tags.txt test/Source.txt"
     - name: packaging
       run: |
-        cmd /c "mkdir rvlq-v20220128-win-x64"
-        cmd /c "copy /v rvlq.exe rvlq-v20220128-win-x64"
-        cmd /c "copy /v rvlq.xcfg rvlq-v20220128-win-x64"
-        cmd /c "copy /v rvlq.xlcl rvlq-v20220128-win-x64"
+        cmd /c "mkdir rvlq-v20220603-win-x64"
+        cmd /c "copy /v rvlq.exe rvlq-v20220603-win-x64"
+        cmd /c "copy /v rvlq.xcfg rvlq-v20220603-win-x64"
+        cmd /c "copy /v rvlq.xlcl rvlq-v20220603-win-x64"
     - name: compressing
-      run: cmd /c "7z a rvlq-v20220128-win-x64.zip rvlq-v20220128-win-x64"
+      run: cmd /c "7z a rvlq-v20220603-win-x64.zip rvlq-v20220603-win-x64"
     - name: release
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: rvlq-v20220128-win-x64.zip
-        tag: v20220128
+        file: rvlq-v20220603-win-x64.zip
+        tag: v20220603
         overwrite: true
